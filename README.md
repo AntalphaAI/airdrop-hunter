@@ -7,7 +7,6 @@
 
 ---
 
-> **Note**: This repository contains the **Coze/OpenClaw version** of Airdrop Hunter.
 > The **MCP Server version** (NestJS) has been migrated to [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills) and is available as an MCP tool via the Antalpha MCP Server.
 
 ---
@@ -73,14 +72,10 @@ The latest version of Airdrop Hunter runs as an MCP tool on the Antalpha MCP Ser
 
 ---
 
-## Coze/OpenClaw Version (Legacy)
-
-This repository contains the original Coze skill version. It requires search plugins and is no longer actively maintained.
-
-### Installation (Coze Version)
+### Installation
 
 1. Download `airdrop-hunter.skill`
-2. Upload to Coze Skill library
+2. Upload to Skill library
 3. Test with command: `daily report`
 
 ### Quick Commands
@@ -128,63 +123,6 @@ SCAM ALERTS
 
 **Tool**: `airdrop-scan`
 
-```json
-{
-  "airdrops": [
-    {
-      "name": "Monad",
-      "slug": "monad",
-      "chains": ["Monad"],
-      "category": "Chain",
-      "status": "active",
-      "token_name": null,
-      "grade": "S",
-      "tvl_usd": null,
-      "funding_usd": 444000000,
-      "vc_backers": ["Paradigm", "Electric Capital"],
-      "community_score": 65,
-      "cost_estimate": "$0",
-      "official_url": "https://monad.xyz",
-      "scam_risk_level": "safe"
-    },
-    {
-      "name": "Abstract",
-      "slug": "abstract",
-      "chains": ["Ethereum"],
-      "category": "Chain",
-      "status": "upcoming",
-      "token_name": null,
-      "grade": "S",
-      "tvl_usd": 52000000,
-      "funding_usd": 107000000,
-      "vc_backers": ["Founders Fund", "Paradigm"],
-      "community_score": 70,
-      "cost_estimate": "$1-5",
-      "official_url": "https://abstract.xyz",
-      "scam_risk_level": "safe"
-    },
-    {
-      "name": "Initia",
-      "slug": "initiadex",
-      "chains": ["Initia"],
-      "category": "Dexs",
-      "status": "upcoming",
-      "token_name": null,
-      "grade": "A",
-      "tvl_usd": 8500000,
-      "funding_usd": 7500000,
-      "vc_backers": ["Binance Labs"],
-      "community_score": 55,
-      "cost_estimate": "$0",
-      "official_url": "https://initia.xyz",
-      "scam_risk_level": "safe"
-    }
-  ],
-  "total_count": 18,
-  "scanned_at": "2026-04-13T10:30:00Z"
-}
-```
-
 **Rendered output**:
 ```
 Airdrop Scan (2026-04-13) — 18 opportunities found
@@ -208,59 +146,6 @@ Airdrop Scan (2026-04-13) — 18 opportunities found
 **User**: "Give me today's airdrop report"
 
 **Tool**: `airdrop-daily-report`
-
-```json
-{
-  "date": "2026-04-13",
-  "sections": {
-    "top_priority": [
-      {
-        "name": "Monad",
-        "grade": "S",
-        "funding_usd": 444000000,
-        "vc_backers": ["Paradigm", "Electric Capital"],
-        "cost_estimate": "$0"
-      }
-    ],
-    "zero_cost": [
-      {
-        "name": "Initia",
-        "interaction_type": "testnet",
-        "grade": "B"
-      },
-      {
-        "name": "MegaETH",
-        "interaction_type": "testnet",
-        "grade": "B"
-      }
-    ],
-    "deadlines": [
-      {
-        "name": "Berachain",
-        "status": "upcoming",
-        "grade": "A"
-      }
-    ],
-    "scam_alerts": [
-      {
-        "type": "fake_claim_website",
-        "description": "Watch for hyphenated knockoff domains (e.g., project-airdrop.io)",
-        "severity": "high"
-      },
-      {
-        "type": "social_engineering",
-        "description": "Official projects NEVER send claim links via DM",
-        "severity": "high"
-      }
-    ]
-  },
-  "metadata": {
-    "total_scanned": 42,
-    "data_sources": ["defillama", "funding-database"],
-    "generated_at": "2026-04-13T08:00:00Z"
-  }
-}
-```
 
 **Rendered output**:
 ```
@@ -290,34 +175,6 @@ SCAM ALERTS
 
 **Tool**: `airdrop-check-project` with `project_name: "Scroll"`
 
-```json
-{
-  "project": {
-    "name": "Scroll",
-    "slug": "scroll",
-    "grade": "C",
-    "status": "completed",
-    "token_name": "SCR",
-    "tvl_usd": 620000000,
-    "funding_usd": 80000000,
-    "vc_backers": ["Polychain", "Sequoia"]
-  },
-  "grade": "C",
-  "status": "completed",
-  "details": "Scroll airdrop completed. Token $SCR already distributed and trading.",
-  "scam_risks": {
-    "risk_level": "medium",
-    "warnings": [
-      {
-        "type": "social_engineering",
-        "description": "\"Scroll\" may be confused with official project. Verify: scroll.io"
-      }
-    ]
-  },
-  "recommendation": "AVOID - Airdrop already completed"
-}
-```
-
 **Rendered output**:
 ```
 Scroll — Grade C | Airdrop COMPLETED
@@ -338,45 +195,6 @@ Recommendation: SKIP — no further airdrop opportunity
 **User**: "Any free airdrops I can do without spending gas?"
 
 **Tool**: `airdrop-zero-cost`
-
-```json
-{
-  "opportunities": [
-    {
-      "name": "Monad",
-      "slug": "monad",
-      "chains": ["Monad"],
-      "category": "Chain",
-      "grade": "B",
-      "tvl_usd": null,
-      "interaction_type": "testnet",
-      "official_url": "https://monad.xyz"
-    },
-    {
-      "name": "Initia",
-      "slug": "initiadex",
-      "chains": ["Initia"],
-      "category": "Dexs",
-      "grade": "B",
-      "tvl_usd": 8500000,
-      "interaction_type": "testnet",
-      "official_url": "https://initia.xyz"
-    },
-    {
-      "name": "MegaETH",
-      "slug": "megaeth",
-      "chains": ["Ethereum"],
-      "category": "Chain",
-      "grade": "B",
-      "tvl_usd": null,
-      "interaction_type": "testnet",
-      "official_url": "https://megaeth.com"
-    }
-  ],
-  "summary": "Found 3 zero-cost airdrop opportunities",
-  "total_found": 3
-}
-```
 
 **Rendered output**:
 ```
@@ -400,28 +218,6 @@ Zero-Cost Airdrops — 3 found
 
 **Tool**: `airdrop-scam-check` with `url: "https://scroll-airdrop-claim.xyz"`
 
-```json
-{
-  "risk_level": "critical",
-  "warnings": [
-    {
-      "type": "fake_claim_website",
-      "pattern": "[a-z0-9]+-(?:airdrop|claim|claims|free|reward)\\.[a-z]+",
-      "description": "Hyphenated knockoff: project name with airdrop/claim suffix (e.g., scroll-airdrop.com)",
-      "severity": "critical"
-    },
-    {
-      "type": "fake_claim_website",
-      "pattern": "scroll",
-      "description": "Domain contains \"scroll\" but is not an official domain. Official: scroll.io",
-      "severity": "critical"
-    }
-  ],
-  "safe_alternatives": ["scroll.io"],
-  "analysis_details": "Domain scroll-airdrop-claim.xyz triggered 2 warning(s): Hyphenated knockoff; Domain contains 'scroll' but not official"
-}
-```
-
 **Rendered output**:
 ```
 SCAM ALERT — Risk Level: CRITICAL
@@ -444,15 +240,6 @@ DO NOT connect your wallet. This is a phishing site.
 **User**: "Is berachain.com the real site?"
 
 **Tool**: `airdrop-scam-check` with `url: "https://berachain.com"`, `project_name: "Berachain"`
-
-```json
-{
-  "risk_level": "safe",
-  "warnings": [],
-  "safe_alternatives": [],
-  "analysis_details": "Domain berachain.com is verified official for berachain."
-}
-```
 
 **Rendered output**:
 ```
@@ -490,17 +277,6 @@ libs/skills/airdrop-hunter/
 └── test/
     └── airdrop-hunter.test.ts       # 35 unit tests
 ```
-
-### Coze Version (Legacy)
-```
-airdrop-hunter/
-├── SKILL.md                          # Main skill definition
-├── references/
-│   ├── evaluation-criteria.md        # Project grading criteria
-│   └── trusted-sources.md            # Trusted information sources
-└── README.md                         # This file
-```
-
 ---
 
 ## Disclaimer
@@ -517,4 +293,5 @@ airdrop-hunter/
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+MIT License
+Maintainer: AntalphaAI Team
