@@ -10,7 +10,6 @@ metadata:
 
 # The Hunter — Elite Airdrop Strategist
 
-> **Note**: The MCP Server version is at [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills). This Coze version is maintained for reference.
 
 ---
 
