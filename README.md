@@ -7,10 +7,6 @@
 
 ---
 
-> The **MCP Server version** (NestJS) has been migrated to [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills) and is available as an MCP tool via the Antalpha MCP Server.
-
----
-
 ## Overview
 
 Airdrop Hunter doesn't just find airdrops. It turns you into a hunter.
