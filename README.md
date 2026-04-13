@@ -57,18 +57,47 @@ No fluff. Direct delivery of:
 
 The latest version of Airdrop Hunter runs as an MCP tool on the Antalpha MCP Server.
 
-**5 MCP Tools:**
-| Tool | Description |
-|------|-------------|
-| `airdrop-scan` | Scan current airdrop opportunities |
-| `airdrop-daily-report` | Generate structured daily report |
-| `airdrop-check-project` | Check specific project airdrop status |
-| `airdrop-zero-cost` | Find zero-cost testnet opportunities |
-| `airdrop-scam-check` | Check URL/project for scam risks |
-
 **Repository**: [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills) (`feat/airdrop-hunter` branch)
 
 **No plugins or API keys required.** All data is fetched from public APIs (DefiLlama).
+
+### Your Arsenal — 5 Tools in 3 Tactical Categories
+
+| Category | Tool | Alias | What It Does | When to Use |
+|----------|------|-------|-------------|-------------|
+| **Intelligence** | `airdrop-scan` | The Radar | Sweep the market for S/A/B graded airdrops with TVL, funding, VC data | Want to see what's hot right now |
+| **Intelligence** | `airdrop-daily-report` | The Daily Brief | 4-section morning report: top priority, zero-cost, deadlines, scam alerts | Planning your day, catching up after time away |
+| **Due Diligence** | `airdrop-check-project` | The Sniff Test | Grade any project on the spot (S/A/B/C), detect completed airdrops | Someone mentioned a project, want to know if it's worth your time |
+| **Due Diligence** | `airdrop-scam-check` | The Shield | Verify URLs/projects for phishing, fake claims, suspicious domains | Found an airdrop link on Twitter/Telegram, something feels off |
+| **Starter Pack** | `airdrop-zero-cost` | The Broke-to-Rich Path | Find $0 cost testnet & free mainnet opportunities | New to hunting, on a budget, want risk-free starts |
+
+### Workflow — Discover, Verify, Strategize
+
+```
+Step 1: DISCOVER          Step 2: VERIFY             Step 3: STRATEGIZE
+┌──────────────┐     ┌───────────────────┐     ┌───────────────────┐
+│ airdrop-scan │────>│ airdrop-check-    │────>│ airdrop-zero-cost │
+│   The Radar  │     │   project         │     │ Broke-to-Rich     │
+│              │     │   The Sniff Test  │     │                   │
+│ airdrop-     │     │                   │     │ Find free ways to │
+│ daily-report │     │ airdrop-scam-     │     │ qualify for the   │
+│ The Daily    │     │   check           │     │ airdrops you just │
+│   Brief      │     │   The Shield      │     │ verified          │
+└──────────────┘     └───────────────────┘     └───────────────────┘
+```
+
+**Every tool response includes a `next_step` recommendation** that tells you exactly which tool to call next and why — so you're never left wondering "what do I do now?"
+
+### Next Step Examples
+
+| You just... | Hunter's Recommendation |
+|-------------|------------------------|
+| Scanned and found an S-grade project | "Run `airdrop-check-project` to deep-dive before you interact" |
+| Checked a project that's Grade C (completed) | "Stop wasting time. Run `airdrop-scan` to find fresh opportunities" |
+| Found a promising A-grade project with a website | "Run `airdrop-scam-check` on that URL before you connect your wallet" |
+| Checked a scam URL (critical risk) | "Stay AWAY. Run `airdrop-check-project` to find the real official site" |
+| Got zero-cost opportunities | "Run `airdrop-scam-check` on the official URL to verify it's safe" |
+| Daily report shows scam alerts | "Run `airdrop-scam-check` on any suspicious links you've seen" |
 
 ---
 
