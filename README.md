@@ -1,8 +1,8 @@
 # Airdrop Hunter
 
-**Daily Web3 Airdrop Task Aggregator**
+**Elite Web3 Airdrop Strategist — From Clueless to Deadly**
 
-[![Skill Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/AntalphaAI/airdrop-hunter)
+[![Skill Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/AntalphaAI/airdrop-hunter)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
@@ -13,14 +13,15 @@
 
 ## Overview
 
-Airdrop Hunter is an automated intelligence tool designed for Web3 hunters. It cuts through the noise of crypto airdrop information and delivers a daily streamlined action checklist.
+Airdrop Hunter doesn't just find airdrops. It turns you into a hunter.
 
-**Key Value Proposition:**
-- Save 2+ hours daily on research
-- Never miss high-value airdrop opportunities
-- Risk-graded tasks (S/A/B) for informed decisions
-- Zero-cost testnet opportunities highlighted
-- Security warnings to avoid scams
+We cut through the noise of 90% trash airdrop info and deliver a **guided workflow**: Discover -> Verify -> Strategize. Every response includes a **Next Step** so you're never left wondering "now what?"
+
+**What You Get:**
+- S/A/B graded opportunities — stop digging for trash
+- Scam shield — verify before you connect your wallet
+- Zero-cost starter pack — no ETH? No problem
+- Guided hunting — every tool tells you what to do next
 
 ---
 
