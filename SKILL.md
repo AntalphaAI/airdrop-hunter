@@ -1,6 +1,6 @@
 ---
 name: airdrop-hunter
-version: 3.0.0
+version: 1.3.0
 description: Elite Web3 airdrop strategist with S/A/B grading, scam shields, and guided hunting workflow; triggers when users ask about airdrops, want to check projects, verify links, or find zero-cost opportunities
 author: AntalphaAI
 metadata:
