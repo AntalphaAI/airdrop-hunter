@@ -2,8 +2,13 @@
 
 **Daily Web3 Airdrop Task Aggregator**
 
-[![Skill Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/elvali-collab/airdrop-hunter)
+[![Skill Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/AntalphaAI/airdrop-hunter)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+---
+
+> **Note**: This repository contains the **Coze/OpenClaw version** of Airdrop Hunter.
+> The **MCP Server version** (NestJS) has been migrated to [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills) and is available as an MCP tool via the Antalpha MCP Server.
 
 ---
 
@@ -22,12 +27,11 @@ Airdrop Hunter is an automated intelligence tool designed for Web3 hunters. It c
 
 ## Features
 
-### 1. Multi-Source Scanning
-Automatically tracks airdrop signals from:
-- X (Twitter) - KOLs and project accounts
-- Mirror.xyz - Project blogs
-- Galxe/Zealy/Layer3 - Campaign platforms
-- Research channels - RootData, DefiLlama, Messari
+### 1. Data-Driven Scanning (MCP Version)
+The MCP Server version fetches structured data directly from:
+- **DefiLlama API** - Protocol TVL, categories, chain info
+- **Hard-coded Funding Database** - VC backing, funding amounts
+- **Airdrop Watchlist** - Curated S/A-grade projects
 
 ### 2. Project Grading System
 
@@ -44,34 +48,42 @@ No fluff. Direct delivery of:
 ```
 
 ### 4. Security Scanning
-- Domain verification via Twitter bio
-- Phishing detection (similar domain warnings)
-- Contract verification on block explorers
-
-### 5. Scheduled Automation
-Configurable daily push at your preferred time via Coze Workflow.
+- Domain verification against known official domains
+- Phishing pattern detection (hyphenated knockoffs, subdomain phishing)
+- Fake claim website detection
 
 ---
 
-## Installation
+## MCP Server Version (Recommended)
 
-### Prerequisites
-- Coze account with plugin access
-- Required plugins:
-  - Google Search OR Bing Search
-  - Link Reader
-  - (Optional) Twitter/X Search
+The latest version of Airdrop Hunter runs as an MCP tool on the Antalpha MCP Server.
 
-### Install Steps
+**5 MCP Tools:**
+| Tool | Description |
+|------|-------------|
+| `airdrop-scan` | Scan current airdrop opportunities |
+| `airdrop-daily-report` | Generate structured daily report |
+| `airdrop-check-project` | Check specific project airdrop status |
+| `airdrop-zero-cost` | Find zero-cost testnet opportunities |
+| `airdrop-scam-check` | Check URL/project for scam risks |
+
+**Repository**: [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills) (`feat/airdrop-hunter` branch)
+
+**No plugins or API keys required.** All data is fetched from public APIs (DefiLlama).
+
+---
+
+## Coze/OpenClaw Version (Legacy)
+
+This repository contains the original Coze skill version. It requires search plugins and is no longer actively maintained.
+
+### Installation (Coze Version)
 
 1. Download `airdrop-hunter.skill`
 2. Upload to Coze Skill library
-3. Enable required plugins
-4. Test with command: `daily report`
+3. Test with command: `daily report`
 
----
-
-## Quick Commands
+### Quick Commands
 
 | Command | Action |
 |---------|--------|
@@ -85,62 +97,57 @@ Configurable daily push at your preferred time via Coze Workflow.
 ## Sample Output
 
 ```
-📅 March 27, 2026 Airdrop Daily Report
+Airdrop Scan Results (2026-04-13)
 
-🔥 TOP PRIORITY (Grade S/A)
-1. Scroll: Bridge 0.01 ETH to Scroll network | $2-5 gas | No deadline
-   └─ Why: Polychain backed ($80M), mainnet live, points active
-   └─ Link: https://scroll.io/bridge
+TOP PRIORITY (Grade S)
+1. Monad: Testnet interaction | $0 | No deadline
+   Why: Paradigm + Electric Capital ($444M funding), Tier-1 VC
+   Link: https://monad.xyz
 
-2. zkSync Era: Mint NFT + Swap | $1-3 | Ongoing
-   └─ Why: a16z backed ($458M), confirmed token
-   └─ Link: https://era.zksync.io
+2. Abstract: Bridge + Swap tasks | $1-5 | Ongoing
+   Why: Founders Fund + Paradigm ($107M funding)
+   Link: https://abstract.xyz
 
-🧪 ZERO-COST TESTNETS (Grade B)
-1. Linea: Claim testnet ETH → Swap tokens | Free | 10 min
-   └─ Faucet: https://faucet.goerli.linea.build
-   └─ Why: ConsenSys backed, mainnet imminent
+ZERO-COST (Grade B)
+1. Initia: Testnet participation | Free | Ongoing
+   Why: Binance Labs backed, testnet live
+   Link: https://initia.xyz
 
-📅 TODAY'S DEADLINES
-- zkSync Galxe Campaign: Ends in 6 hours
-- Scroll OAT Claim: Ends March 28
-
-⚠️ SECURITY ALERTS
-- Phishing alert: "scrolls-airdrop.io" is NOT official
-- Always verify: scroll.io (check Twitter @Scroll_ZKP)
+SCAM ALERTS
+- Phishing: "scroll-airdrop-claim.xyz" is NOT official
+- Official: scroll.io
 ```
-
----
-
-## Configuration
-
-### Plugin Setup
-Navigate to Coze Plugins page and enable:
-
-1. **Google Search** or **Bing Search**
-   - Required for fetching airdrop articles
-   - Test: Search "airdrop alpha today"
-
-2. **Link Reader**
-   - Required for deep-diving articles
-   - Extracts key details from long content
-
-3. **Twitter/X Search** (Optional)
-   - Direct access to X for real-time alpha
-   - Workaround: Use Google Search with `site:x.com`
-
-### Workflow Setup (Daily Automation)
-Configure scheduled trigger:
-1. Create workflow: `Daily_Airdrop_Push`
-2. Set trigger: Daily at 10:00 AM (configurable)
-3. Configure output: Chat / Telegram / Discord
-
-See [SKILL.md](airdrop-hunter/SKILL.md) for detailed configuration.
 
 ---
 
 ## Project Structure
 
+### MCP Server Version
+```
+libs/skills/airdrop-hunter/
+├── src/
+│   ├── airdrop-hunter.config.ts     # Configuration
+│   ├── airdrop-hunter.module.ts     # NestJS module
+│   ├── constants/
+│   │   ├── prohibited-tokens.ts     # Completed airdrops (exact match)
+│   │   ├── funding-database.ts      # Hard-coded VC/funding data
+│   │   ├── airdrop-watchlist.ts     # Curated S/A-grade projects
+│   │   ├── vc-tiers.ts             # VC tier classification
+│   │   └── scam-patterns.ts        # Phishing detection patterns
+│   ├── model/
+│   │   └── airdrop-project.model.ts # Data interfaces
+│   ├── service/
+│   │   ├── defillama.service.ts     # DefiLlama API client
+│   │   ├── grading.service.ts       # S/A/B/C grading engine
+│   │   ├── scam-detector.service.ts # Scam detection
+│   │   └── airdrop-scanner.service.ts # Scan orchestrator
+│   └── tools/
+│       └── airdrop-hunter.tools.ts  # 5 MCP tool registrations
+└── test/
+    └── airdrop-hunter.test.ts       # 35 unit tests
+```
+
+### Coze Version (Legacy)
 ```
 airdrop-hunter/
 ├── SKILL.md                          # Main skill definition
@@ -149,13 +156,6 @@ airdrop-hunter/
 │   └── trusted-sources.md            # Trusted information sources
 └── README.md                         # This file
 ```
-
----
-
-## Resources
-
-- [Evaluation Criteria](airdrop-hunter/references/evaluation-criteria.md) - Detailed grading methodology
-- [Trusted Sources](airdrop-hunter/references/trusted-sources.md) - Where to find airdrop alpha
 
 ---
 
@@ -174,20 +174,3 @@ airdrop-hunter/
 ## License
 
 MIT License - See [LICENSE](LICENSE) for details.
-
----
-
-## Contributing
-
-Contributions welcome! Please:
-1. Fork the repository
-2. Create feature branch
-3. Submit pull request
-
----
-
-## Support
-
-- Open an issue for bugs
-- Join discussions for feature requests
-- Star the repo if you find it useful!

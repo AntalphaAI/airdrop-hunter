@@ -1,23 +1,22 @@
 ---
 name: airdrop-hunter
-version: 1.0.0
+version: 2.0.0
 description: Daily Web3 airdrop intelligence tool with S/A/B grading, scam alerts, and automated daily reports; use when users ask for airdrop tasks, zero-cost opportunities, or project status checks
 author: AntalphaAI
-dependency:
-  plugin:
-    - web_search
-    - link_reader
 metadata:
   repository: https://github.com/AntalphaAI/airdrop-hunter
+  mcp_repository: https://github.com/antalpha-com/antalpha-skills
 ---
 
 # Airdrop Hunter
 
+> **Note**: The MCP Server version of this skill is now available at [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills). This Coze version is maintained for reference.
+
 ## Start Message
 
-**👋 Welcome to Airdrop Hunter!**
+**Welcome to Airdrop Hunter!**
 
-> ⚠️ **Important Reminder:** I am an AI assistant, not a financial advisor.
+> **Important Reminder:** I am an AI assistant, not a financial advisor.
 > - All information is for reference only and does not constitute investment advice.
 > - Always verify through official channels before any interaction.
 > - Never share your private keys or seed phrases with anyone.
@@ -39,46 +38,25 @@ metadata:
 
 ---
 
-## Prerequisites
+## Data Sources
 
-### Required Plugins
+This skill uses the following data sources (no search plugins required in MCP version):
 
-| Plugin | Purpose |
-|--------|---------|
-| **Google Search** / **Bing Search** | Search web for airdrop news |
-| **Link Reader** | Read details from articles/tweets |
-
-### Plugin Configuration
-```
-□ Google Search OR Bing Search enabled
-□ Link Reader enabled
-□ Test: Search "airdrop alpha today" to verify
-```
+| Source | Data | Access |
+|--------|------|--------|
+| **DefiLlama API** | Protocol TVL, categories, chains | Public API, no auth required |
+| **Funding Database** | VC backing, funding amounts | Hard-coded (16 projects) |
+| **Airdrop Watchlist** | Curated S/A-grade projects | Hard-coded (5 projects) |
 
 ---
 
 ## Operational Steps
 
-### Step 1: Multi-Source Search
+### Step 1: Scan for Opportunities
 
-Execute search queries based on user intent:
+Fetch protocol data from DefiLlama and filter by airdrop-relevant categories.
 
-| User Intent | Search Queries |
-|-------------|----------------|
-| Daily report | `"airdrop alpha" [current_date]`, `"testnet checklist" latest`, `site:x.com "airdrop" after:24h` |
-| Zero-cost | `"testnet faucet" free`, `"zero cost airdrop"`, `"layer3 quest" free` |
-| Specific project | `"[project name] airdrop"`, `"[project name] testnet"` |
-| S-grade only | `"airdrop" funded VC`, `"backed by a16z OR paradigm"` |
-
-### Step 2: Date Filtering (Critical)
-
-**⚠️ AI date filtering is unreliable. Use Code Node for 100% accuracy.**
-
-Call `scripts/date_filter.py` to remove outdated content (2025 and earlier).
-
-See [scripts/date_filter.py](scripts/date_filter.py) for implementation.
-
-### Step 3: Project Grading
+### Step 2: Project Grading
 
 Grade each project using S/A/B system:
 
@@ -90,41 +68,41 @@ Grade each project using S/A/B system:
 
 See [references/grading-system.md](references/grading-system.md) for detailed criteria.
 
-### Step 4: Scam Detection
+### Step 3: Scam Detection
 
 Automatically detect and warn about:
 
 **1. Fake Claim Websites**
 ```
-⚠️ Phishing Alert: [suspicious domains]
-✅ Official Domain: [verified official domain]
+Phishing Alert: [suspicious domains]
+Official Domain: [verified official domain]
 ```
 
 **2. Social Engineering Scams**
 ```
-⚠️ Telegram/DM Scam: "You won airdrop, click link"
-✅ Official projects NEVER send claim links via DM
-✅ NEVER ask for gas fees or private keys in DM
+Telegram/DM Scam: "You won airdrop, click link"
+Official projects NEVER send claim links via DM
+NEVER ask for gas fees or private keys in DM
 ```
 
 **3. Fake Token Scams**
 ```
-⚠️ Counterfeit token exists on DEX
-✅ Official token listed on: Binance, OKX, Bybit, etc.
+Counterfeit token exists on DEX
+Official token listed on: Binance, OKX, Bybit, etc.
 ```
 
 See [references/scam-detection.md](references/scam-detection.md) for detailed detection guide.
 
-### Step 5: Generate Output
+### Step 4: Generate Output
 
 Follow output template in [assets/daily-report-template.md](assets/daily-report-template.md).
 
 **Required sections:**
-1. 📅 Date & Overview
-2. 🔥 S/A Grade Tasks (with gas cost, deadline, official link)
-3. 🧪 Zero-Cost Testnets
-4. ⚠️ Scam Alerts (if any)
-5. 💡 Quick Tips
+1. Date & Overview
+2. S/A Grade Tasks (with gas cost, deadline, official link)
+3. Zero-Cost Testnets
+4. Scam Alerts (if any)
+5. Quick Tips
 
 ---
 
@@ -139,7 +117,7 @@ Before responding, verify:
 | **Integrity** | Am I recommending already-airdropped projects? |
 | **Links** | Are these official domains? |
 
-**If ANY answer is NO**, add: `⚠️ Requires verification - please check official channels`
+**If ANY answer is NO**, add: `Requires verification - please check official channels`
 
 ---
 
@@ -152,6 +130,9 @@ Before responding, verify:
 - $OP (Optimism)
 - $BLUR (Blur)
 - $ENS (Ethereum Name Service)
+- $SCR (Scroll)
+- $HYPE (Hyperliquid)
+- $BASE (Base - no token planned)
 
 ---
 
@@ -159,7 +140,6 @@ Before responding, verify:
 
 | Resource | Purpose |
 |----------|---------|
-| [scripts/date_filter.py](scripts/date_filter.py) | Code Node for date filtering |
 | [references/grading-system.md](references/grading-system.md) | S/A/B grading criteria |
 | [references/scam-detection.md](references/scam-detection.md) | Scam detection guide |
 | [references/output-template.md](references/output-template.md) | Output format specification |
@@ -179,7 +159,7 @@ Before responding, verify:
 
 ## Security Notes
 
-- **External Requests**: Data is fetched from public web sources via search plugins
+- **Data Sources**: Public APIs (DefiLlama), no user credentials required
 - **No Local Server**: This skill does not start any local HTTP server
 - **No File Persistence**: No user data is stored locally
 - **Sensitive Data**: No API keys or tokens required from users
