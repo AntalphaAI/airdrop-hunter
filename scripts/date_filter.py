@@ -1,61 +1,104 @@
+#!/usr/bin/env python3
 """
-Date Filter for Airdrop Hunter
-Removes outdated content from search results
+Date filter for airdrop articles.
+Filters out articles older than a specified number of days.
 
-Usage: Call from Code Node in Coze Workflow
-Input: search_results (list of dicts with 'title' and 'snippet')
-Output: final_list (filtered list, max 5 items)
+Usage:
+  python date_filter.py --days 3 --input articles.json --output filtered.json
 """
 
-import re
-from datetime import datetime
-
-async def main(args):
-    # Input: search results list from Search Node
-    results = args.get("search_results", [])
-    current_year = datetime.now().year
-    filtered_results = []
-
-    for item in results:
-        content = str(item.get("snippet", "")) + str(item.get("title", ""))
-        
-        # Find all year patterns (20XX)
-        years_found = re.findall(r'20[0-9]{2}', content)
-        
-        # Filter out old years (before current year)
-        old_years = [y for y in years_found if int(y) < current_year]
-        
-        # Keep if: mentions current year OR has no old year references
-        if str(current_year) in content or not old_years:
-            filtered_results.append(item)
-
-    return {
-        "final_list": filtered_results[:5]  # Top 5 recent & relevant results
-    }
+import json
+import argparse
+from datetime import datetime, timezone, timedelta
 
 
-# ========== TEST CASES ==========
+def is_within_days(date_str: str, max_days: int) -> bool:
+    """
+    Check if a date string is within the last `max_days` days.
+
+    Args:
+        date_str: ISO 8601 date string (e.g., "2026-04-13T10:30:00Z")
+        max_days: Maximum age in days
+
+    Returns:
+        True if the date is within the window, False otherwise
+    """
+    try:
+        # Parse ISO 8601 date
+        article_date = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+        now = datetime.now(timezone.utc)
+        age = now - article_date
+        return age.days <= max_days
+    except (ValueError, TypeError):
+        # If date cannot be parsed, include the article by default
+        # (better to show stale info than miss opportunities)
+        return True
+
+
+def is_future_date(date_str: str) -> bool:
+    """
+    Check if a date is in the future.
+
+    Note: Future-dated articles are ALLOWED through the filter intentionally.
+    Some airdrop announcements have future dates for:
+    - Scheduled snapshot dates
+    - Upcoming claim windows
+    - Future deadline announcements
+    These are valid signals that should not be filtered out.
+
+    Args:
+        date_str: ISO 8601 date string
+
+    Returns:
+        True if the date is in the future, False otherwise
+    """
+    try:
+        article_date = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+        now = datetime.now(timezone.utc)
+        return article_date > now
+    except (ValueError, TypeError):
+        return False
+
+
+def filter_articles(articles: list, max_days: int) -> list:
+    """
+    Filter articles by date, keeping only those within max_days.
+
+    Future-dated articles are intentionally kept (see is_future_date docstring).
+
+    Args:
+        articles: List of article dicts with 'date' field
+        max_days: Maximum age in days
+
+    Returns:
+        Filtered list of articles
+    """
+    filtered = []
+    for article in articles:
+        date_str = article.get("date", "")
+        if is_within_days(date_str, max_days):
+            filtered.append(article)
+
+    return filtered
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Filter airdrop articles by date")
+    parser.add_argument("--days", type=int, default=3, help="Maximum article age in days (default: 3)")
+    parser.add_argument("--input", required=True, help="Input JSON file path")
+    parser.add_argument("--output", required=True, help="Output JSON file path")
+    args = parser.parse_args()
+
+    with open(args.input, "r") as f:
+        articles = json.load(f)
+
+    result = filter_articles(articles, args.days)
+
+    with open(args.output, "w") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+
+    print(f"Filtered: {len(articles)} -> {len(result)} articles (max {args.days} days)")
+
+
 if __name__ == "__main__":
-    # Test input
-    test_input = {
-        "search_results": [
-            {"title": "2024 Airdrop Guide", "snippet": "Old guide from 2024"},
-            {"title": "Latest 2026 Testnet", "snippet": "New opportunity in 2026"},
-            {"title": "Testnet Checklist", "snippet": "No year mentioned"},
-            {"title": "2025 Summary", "snippet": "Last year's recap 2025"},
-            {"title": "2023 DeFi Report", "snippet": "Outdated report"},
-            {"title": "2027 Future Airdrop", "snippet": "Upcoming project"},
-            {"title": "Item 7", "snippet": "Test truncation"},
-            {"title": "Item 8", "snippet": "Test truncation"},
-            {"title": "Item 9", "snippet": "Test truncation"},
-            {"title": "Item 10", "snippet": "Test truncation"},
-            {"title": "Item 11", "snippet": "Should be truncated"},
-        ]
-    }
-    
-    # Expected output: items 2, 3, 6, 7, 8 (max 5, filtered out old years)
-    import asyncio
-    result = asyncio.run(main(test_input))
-    print("Filtered results:", result)
-    print("Count:", len(result["final_list"]))
-    assert len(result["final_list"]) == 5, "Should return max 5 items"
+    main()

@@ -1,265 +1,102 @@
-# Airdrop Project Evaluation Criteria
+# Evaluation Criteria — Project Quality Assessment
+
+> **Canonical reference**: [grading-system.md](grading-system.md). This document aligns with the thresholds defined there.
+
+---
 
 ## Overview
-This document provides detailed criteria for grading airdrop opportunities from S (highest) to C (lowest).
+
+Evaluation criteria for assessing airdrop project quality. Grades are determined by **3 core dimensions**: VC Quality, Funding Scale, and Token Status.
 
 ---
 
-## Table of Contents
-- [Grade S - Must Do](#grade-s---must-do)
-- [Grade A - High Priority](#grade-a---high-priority)
-- [Grade B - Testnet/Speculative](#grade-b---testnetspeculative)
-- [Grade C - Low Priority](#grade-c---low-priority)
-- [VC Tier Classification](#vc-tier-classification)
-- [Red Flags](#red-flags)
+## Grade Thresholds (Aligned with grading-system.md)
 
----
+### Grade S — MUST DO
 
-## Grade S - Must Do
-
-**Definition**: Highest confidence opportunities with strong backing and low cost.
-
-### Required Criteria (ALL must be met)
-
-| Criterion | Requirement | How to Verify |
-|-----------|-------------|---------------|
-| **VC Backing** | Tier-1 VC lead | RootData, Crunchbase |
-| **Funding Amount** | $10M+ raised | RootData, Messari |
-| **Community** | 10k+ Twitter followers | Twitter profile |
-| **Token Status** | Confirmed airdrop allocation | Tokenomics docs, Twitter |
-| **Cost** | <$5 or free | Gas estimation |
-
-### Tier-1 VCs (Automatic S if lead investor)
-- a16z (Andreessen Horowitz)
-- Paradigm
-- Polychain Capital
-- Sequoia Capital
-- Founders Fund
-- Electric Capital
-- Dragonfly Capital
-
-### Example Grade S Projects
-1. **Arbitrum (Completed)**
-   - Funding: $143M from Pantera, Lightspeed
-   - Airdrop: Confirmed and executed
-   - Cost: Free testnet interactions
-
-2. **zkSync Era**
-   - Funding: $458M from a16z, Union Square
-   - Airdrop: Confirmed token
-   - Cost: Low gas on zkSync
-
----
-
-## Grade A - High Priority
-
-**Definition**: Strong opportunities with good risk/reward ratio.
-
-### Required Criteria (at least 3 of 4)
-
-| Criterion | Requirement |
-|-----------|-------------|
-| **VC Backing** | Tier-1 or Tier-2 VC involved |
-| **Funding Amount** | $5M+ raised |
-| **Community** | 5k+ Twitter followers OR active Discord |
-| **Stage** | Mainnet live OR TGE imminent |
-
-### Tier-2 VCs
-- Pantera Capital
-- Coinbase Ventures
-- Binance Labs
-- HashKey Capital
-- Framework Ventures
-- Bain Capital Crypto
-
-### Additional A Factors
-- Points system active (speculative but low cost)
-- Partner integrations with major protocols
-- Strong GitHub activity (weekly commits)
-- Team from reputable projects (Uniswap, Polygon, etc.)
-
-### Cost Guidelines for Grade A
-- Mainnet: $5-20 acceptable
-- Testnet: Free always
-- Time: Under 30 minutes
-
----
-
-## Grade B - Testnet/Speculative
-
-**Definition**: Early-stage opportunities with potential but no guarantees.
-
-### Criteria
-
-| Criterion | Requirement |
-|-----------|-------------|
-| **Funding** | Any confirmed OR strong team background |
-| **Stage** | Testnet OR early mainnet |
-| **Cost** | Free (testnet) OR <$2 (mainnet) |
-| **Risk** | May not have token |
-
-### When to Include
-1. **Testnet with strong backers** (even if funding unknown)
-2. **New L2/L3 from reputable team** (e.g., Base from Coinbase)
-3. **Ecosystem campaigns** (Galxe, Zealy, Layer3 quests)
-4. **Points/farming systems** (but mark as speculative)
-
-### B → A Upgrade Path
-- Announces funding round → Upgrade to A
-- Confirms token → Upgrade to A
-- Mainnet launch with incentives → Upgrade to A
-
----
-
-## Grade C - Low Priority
-
-**Definition**: Included for completeness but with clear warnings.
-
-### Criteria
-
-| Criterion | Situation |
+| Dimension | Threshold |
 |-----------|-----------|
-| **Team** | Anonymous OR unknown background |
-| **Community** | <1k followers OR low engagement |
-| **Cost** | High gas ($20+) with no clear value |
-| **Risk** | High scam probability |
+| VC Quality | **Tier-1** lead (a16z, Paradigm, Polychain, Sequoia, Founders Fund, Electric Capital, Dragonfly) |
+| Funding | **$50M+** |
+| Token | Not yet launched |
+| Community | Strong (testnet active, significant social presence) |
 
-### Must Include Warning
-```
-⚠️ DYOR: This project has limited info. Proceed with caution.
-```
-
-### Never List
-- No official Twitter
-- No website
-- Known scams (check Twitter replies for reports)
-- Copycat projects (similar names to popular ones)
+**Action:** Immediate participation. These are the highest-confidence opportunities.
 
 ---
 
-## VC Tier Classification
+### Grade A — HIGH
 
-### Tier-1 (Automatic S grade if lead)
-- a16z
-- Paradigm
-- Polychain
-- Sequoia
-- Founders Fund
-- Electric Capital
-- Dragonfly
+| Dimension | Threshold |
+|-----------|-----------|
+| VC Quality | **Tier-1 or Tier-2** VC participation |
+| Funding | **$10M+** |
+| Token | Not yet launched (or confirmed airdrop incoming) |
+| Community | Active testnet or mainnet presence |
 
-### Tier-2 (Automatic A grade if involved)
-- Pantera
-- Coinbase Ventures
-- Binance Labs
-- HashKey
-- Framework
-- Bain Crypto
-- Haun Ventures
+**Alternative path:** Tier-3 VC + $100M+ TVL (proven market traction without token).
 
-### Tier-3 (Adds credibility)
-- CoinFund
-- Distributed Global
-- Robot Ventures
-- Nascent
-
-### Not VC-Backed
-- Check team background instead
-- Look for: ex-Uniswap, ex-Polygon, ex-Ethereum devs
-- Open source with strong GitHub activity
+**Action:** Worth dedicated time. Prioritize after S-grade tasks.
 
 ---
 
-## Red Flags
+### Grade B — SPECULATIVE
 
-### Immediate Disqualification
-- No official Twitter account
-- Website with no SSL certificate
-- Contract not verified on Etherscan
-- Team with history of rug pulls
-- Token contract similar to known scams
+| Dimension | Threshold |
+|-----------|-----------|
+| VC Quality | Any known VC, or no VC but growing community |
+| Funding | Any amount below $10M |
+| Token | Not yet launched |
+| Community | Early testnet or social presence |
 
-### Warning Signs (Include in report)
-- Urgent "act now" messaging
-- Requests for private keys
-- Requires sending ETH to unknown address
-- Domain similar to popular project
-  - Example: `arbitrum-airdrop.io` (fake)
-  - Real: `arbitrum.io`
-- Unverified Telegram as main channel
-- Anonymous team with no track record
+**Alternative path:** $10M+ TVL without token (market traction signals potential airdrop).
 
-### Community Reports
-- Check Twitter replies for scam reports
-- Search: `[project name] scam` or `[project name] rug`
-- Check: r/ethfinance, r/defi for warnings
+**Action:** Low-cost or zero-cost interaction only. Do not over-invest.
 
 ---
 
-## Quick Evaluation Checklist
+### Grade C — SKIP
 
-Before grading any project:
+| Dimension | Threshold |
+|-----------|-----------|
+| Token | Already exists and is trading |
+| Airdrop | Already distributed |
+| Prohibited | In the Prohibited Tokens list |
 
-```
-□ Funding confirmed? (RootData/Crunchbase)
-  └─ If yes: What tier VC? How much?
-
-□ Community size? (Twitter followers)
-  └─ 10k+ = S/A candidate
-  └─ 5k-10k = A/B candidate
-  └─ <5k = B/C candidate
-
-□ Official channels? (Twitter, Discord, Docs)
-  └─ All present? = Good sign
-  └─ Missing Discord? = Caution
-  └─ Only Telegram? = Warning
-
-□ Token status?
-  └─ Confirmed airdrop? = +1 grade
-  └─ Points system? = Neutral
-  └─ No token info? = Speculative
-
-□ Cost analysis?
-  └─ Free testnet? = Low risk
-  └─ <$5 mainnet? = Acceptable
-  └─ >$20? = Explain clearly
-
-□ Security check?
-  └─ Official URLs verified?
-  └─ Contract verified?
-  └─ No red flags?
-```
+**Action:** No action required. Move on to other opportunities.
 
 ---
 
-## Example Evaluations
+## VC Tier Reference
 
-### Example 1: Scroll
-```
-Funding: $80M from Polychain (Tier-1) ✓
-Community: 250k Twitter followers ✓
-Stage: Mainnet live ✓
-Token: Points system, confirmed future token ✓
-Cost: <$5 for bridge ✓
-→ Grade: S
-```
+| Tier | VCs | Weight |
+|------|-----|--------|
+| **Tier-1** | a16z, Paradigm, Polychain Capital, Sequoia Capital, Founders Fund, Electric Capital, Dragonfly | Highest confidence |
+| **Tier-2** | Pantera Capital, Coinbase Ventures, Binance Labs, HashKey Capital, Framework Ventures, Bain Capital Crypto, Haun Ventures | Strong backing |
+| **Tier-3** | CoinFund, Distributed Global, Robot Ventures, Nascent | Moderate backing |
 
-### Example 2: New Layer 3
-```
-Funding: $5M from Tier-2 VC ✓
-Community: 3k Twitter followers △
-Stage: Testnet ✓
-Token: Not confirmed △
-Cost: Free ✓
-→ Grade: B (upgrade to A after mainnet)
-```
+---
 
-### Example 3: Unknown Project
-```
-Funding: None found ✗
-Community: 500 Twitter followers ✗
-Stage: Claim "mainnet" but no users ✗
-Token: "Airdrop confirmed" but no details ⚠️
-Cost: Requires 0.1 ETH deposit 🚩
-→ Grade: EXCLUDE (likely scam)
-```
+## Red Flags (Immediate Downgrade)
+
+| Flag | Impact |
+|------|--------|
+| Token already trading | Force Grade C |
+| In Prohibited Tokens list | Force Grade C |
+| No official website | Cap at Grade B |
+| Anonymous team + no VC | Cap at Grade B |
+| Less than 30 days listed on DefiLlama | Cap at Grade B |
+
+---
+
+## Evaluation Checklist
+
+When evaluating a project, check in this order:
+
+1. **Prohibited?** → If yes, Grade C immediately. Stop here.
+2. **Token exists?** → If yes, Grade C. Stop here.
+3. **Tier-1 VC + $50M+ funding?** → If yes, Grade S.
+4. **Tier-1/2 VC + $10M+ funding?** → If yes, Grade A.
+5. **$100M+ TVL without token?** → If yes, Grade A.
+6. **Any funding or $10M+ TVL?** → If yes, Grade B.
+7. **Otherwise** → Grade B (speculative, zero-cost only).

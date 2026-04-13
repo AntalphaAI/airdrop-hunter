@@ -1,124 +1,145 @@
-# Project Grading System
+# Grading System — S/A/B/C Project Classification
 
 ## Overview
 
-This document defines the S/A/B grading criteria for airdrop projects.
+Projects are graded on a 4-tier scale based on **funding quality**, **TVL**, and **token status**. The grade determines the Hunter's recommendation and action priority.
+
+> **Primary reference**: This document is the canonical grading standard. All other docs (evaluation-criteria.md, etc.) must align with these thresholds.
 
 ---
 
-## Grade S - Must Do
+## Grade Definitions
 
-**Definition**: Highest confidence opportunities with strong backing.
+### Grade S — MUST DO
 
-### Required Criteria (ALL must be met)
+**Criteria (ALL must be met):**
 
-| Criterion | Requirement | Verification |
-|-----------|-------------|--------------|
-| VC Backing | Tier-1 VC lead | RootData, Crunchbase |
-| Funding | $50M+ raised | RootData, Messari |
-| Community | 50k+ Twitter followers | Twitter profile |
-| Token | Confirmed airdrop | Tokenomics, Twitter |
-| Cost | <$10 or free | Gas estimation |
+| Dimension | Threshold |
+|-----------|-----------|
+| VC Quality | At least 1 **Tier-1 VC** lead investor (a16z, Paradigm, Polychain, Sequoia, Founders Fund, Electric Capital, Dragonfly) |
+| Funding Amount | **$50M+** total raised |
+| Token Status | No token yet (airdrop still possible) |
 
-### Tier-1 VCs (Automatic S if lead investor)
+**Typical Profile:** Tier-1 VC-backed L1/L2 chains or major DeFi protocols with significant war chests and no token.
 
-- a16z (Andreessen Horowitz)
-- Paradigm
-- Polychain Capital
-- Sequoia Capital
-- Founders Fund
-- Electric Capital
-- Dragonfly Capital
-
-### Example S-Grade Projects
-
-| Project | Funding | Backers | Status |
-|---------|---------|---------|--------|
-| zkSync Era | $458M | a16z, Union Square | Active |
-| Scroll | $80M | Polychain, Bain | Mainnet Live |
-| Linea | ConsenSys backed | ConsenSys | Points Active |
+**Example:**
+- **Monad** — Paradigm + Electric Capital, $444M funding, no token. ROI Index: 9/10
+- **Abstract** — Founders Fund + Paradigm, $107M funding, no token. ROI Index: 8/10
 
 ---
 
-## Grade A - High Priority
+### Grade A — HIGH
 
-**Definition**: Strong projects with good potential.
+**Criteria (ANY of the following):**
 
-### Required Criteria
+| Path | Condition |
+|------|-----------|
+| Path 1 | Tier-1 or Tier-2 VC + **$10M+** funding |
+| Path 2 | Any Tier-3 VC + **$100M+ TVL** |
+| Path 3 | Confirmed airdrop with official announcement |
 
-| Criterion | Requirement |
-|-----------|-------------|
-| VC Backing | Reputable VC (Tier-1 or Tier-2) |
-| Funding | $10M+ raised |
-| Community | 10k+ Twitter followers |
-| Token | Confirmed or highly likely |
-| Cost | <$20 or testnet available |
+**Typical Profile:** Well-funded projects with known VCs, or high-TVL protocols without tokens.
 
-### Tier-2 VCs
-
-- Pantera Capital
-- Coinbase Ventures
-- Binance Labs
-- Electric Capital
-- Framework Ventures
+**Example:**
+- **Initia** — Binance Labs backed, $7.5M funding, testnet live. ROI Index: 7/10
+- **Berachain** — Multiple VCs, high TVL, BGT governance (likely airdrop). ROI Index: 7/10
 
 ---
 
-## Grade B - Speculative
+### Grade B — SPECULATIVE
 
-**Definition**: Early-stage or testnet opportunities with lower certainty.
+**Criteria (ANY of the following):**
 
-### Criteria
+| Path | Condition |
+|------|-----------|
+| Path 1 | Has some funding but below A-grade threshold |
+| Path 2 | **$10M+ TVL** without token (potential future airdrop) |
+| Path 3 | Testnet or early-stage, zero-cost interaction possible |
 
-| Criterion | Requirement |
-|-----------|-------------|
-| Stage | Testnet or early mainnet |
-| Cost | Zero-cost preferred |
-| Risk | User aware of uncertainty |
-| Upside | Potential for future airdrop |
+**Typical Profile:** Early-stage projects with uncertain airdrop prospects. Low risk, potentially low reward.
 
-### B-Grade Indicators
-
-- Active testnet with faucet
-- Points/quest system running
-- No token announced yet
-- Early user incentives
+**Example:**
+- **MegaETH** — Early testnet, no token yet. ROI Index: 5/10
+- **Mitosis** — DeFi protocol, early stage. ROI Index: 4/10
 
 ---
 
-## Grade C - Skip
+### Grade C — SKIP
 
-**Definition**: Not recommended due to high risk or low potential.
+**Criteria (ANY of the following):**
 
-### Red Flags
+| Path | Condition |
+|------|-----------|
+| Path 1 | Token already exists and is trading |
+| Path 2 | Airdrop has already been distributed |
+| Path 3 | In the **Prohibited Tokens** list |
 
-- No VC backing
-- Anonymous team
-- Low community engagement
-- No clear roadmap
-- Copycat project
-- Already completed airdrop
+**Typical Profile:** Dead opportunities. The airdrop ship has sailed.
 
----
-
-## Grading Workflow
-
-```
-1. Check VC backing → RootData, Crunchbase
-2. Check funding amount → Messari, RootData
-3. Check community → Twitter, Discord
-4. Check token status → Official docs, Twitter
-5. Estimate cost → Gas calculator
-6. Assign grade → S/A/B/C
-```
+**Example:**
+- **Arbitrum** — $ARB already distributed and trading. Grade C.
+- **Scroll** — $SCR already distributed. Grade C.
+- **zkSync** — $ZK already distributed. Grade C.
 
 ---
 
-## Quick Reference
+## VC Tier Classification
 
-| Grade | VC Tier | Funding | Action |
-|-------|---------|---------|--------|
-| S | Tier-1 | $50M+ | MUST DO |
-| A | Tier-1/2 | $10M+ | HIGH |
-| B | Any | Any | SPECULATIVE |
-| C | None | Low | SKIP |
+| Tier | VCs |
+|------|-----|
+| **Tier-1** | a16z, Paradigm, Polychain Capital, Sequoia Capital, Founders Fund, Electric Capital, Dragonfly |
+| **Tier-2** | Pantera Capital, Coinbase Ventures, Binance Labs, HashKey Capital, Framework Ventures, Bain Capital Crypto, Haun Ventures |
+| **Tier-3** | CoinFund, Distributed Global, Robot Ventures, Nascent |
+
+---
+
+## ROI Index Calculation
+
+ROI Index = `grade_score + funding_score + cost_score + community_score`
+
+| Factor | Points | Condition |
+|--------|--------|-----------|
+| Grade | 4 | S-grade |
+| | 3 | A-grade |
+| | 2 | B-grade |
+| Funding | 3 | $50M+ |
+| | 2 | $10M+ |
+| | 1 | Any funding |
+| Cost | 2 | $0 (free) |
+| | 1 | $1-5 |
+| Community | 1 | Score >= 60 |
+| **Max** | **10** | |
+
+---
+
+## Prohibited Tokens (Hard Block)
+
+These projects have already completed their airdrops. **NEVER recommend them** as active opportunities:
+
+| Project | Token | Status |
+|---------|-------|--------|
+| Arbitrum | $ARB | Airdrop completed |
+| Optimism | $OP | Airdrop completed |
+| Starknet | $STRK | Airdrop completed |
+| zkSync | $ZK | Airdrop completed |
+| Blur | $BLUR | Airdrop completed |
+| ENS | $ENS | Airdrop completed |
+| Scroll | $SCR | Airdrop completed |
+| Hyperliquid | $HYPE | Airdrop completed |
+| Base | N/A | No token planned |
+| Sui | $SUI | Airdrop completed |
+| Aptos | $APT | Airdrop completed |
+| Sei | $SEI | Airdrop completed |
+| Linea | $LINEA | Airdrop completed |
+| Celo | $CELO | Airdrop completed |
+| Celestia | $TIA | Airdrop completed |
+| EigenLayer | $EIGEN | Airdrop completed |
+| Fuel | $FUEL | Airdrop completed |
+
+---
+
+## Grade Override Rules
+
+1. **Watchlist Override**: Projects on the Airdrop Watchlist are guaranteed at least their `minGrade` regardless of TVL.
+2. **Prohibited Override**: If a project is in the Prohibited Tokens list, grade is forced to **C** regardless of other factors.
+3. **Confirmed Airdrop Boost**: If `airdropStatus === "confirmed"`, minimum grade is **B** (cannot be C unless prohibited).

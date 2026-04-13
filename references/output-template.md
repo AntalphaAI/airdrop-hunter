@@ -1,159 +1,228 @@
-# Output Template Specification
+# Output Template — Hunter Report Format
 
-## Required Sections
-
-Every output must include these 5 sections:
+> This template defines the structured output format for all Airdrop Hunter reports.
+> The AI agent receives JSON from MCP tools and renders it as savage Markdown.
 
 ---
 
-### Section 1: Date & Overview
+## 1. Scan/Daily Report Output
 
+### JSON Structure (from MCP tool)
+```json
+{
+  "summary": "扫描完毕：2个金矿，3个值得关注，1个已空投（别碰）",
+  "projects": [
+    {
+      "name": "Project Name",
+      "grade": "S",
+      "metrics": {
+        "tvl": "$500M",
+        "funding": "$80M (Paradigm +1)",
+        "cost_estimate": "$20-$50 Gas",
+        "roi_index": "9/10"
+      },
+      "savage_comment": "这就是Web3的亲儿子，顶级机构喂饭。",
+      "action_required": "完成主网跨链并至少保留0.1 ETH余额"
+    }
+  ],
+  "hunter_advice": "先处理S级，Gas低于15 gwei时再动B级。",
+  "next_step_options": ["Deep Dive S/A Project", "Check Scam Risks", "Show Zero Cost"]
+}
+```
+
+### Rendered Markdown Template
 ```markdown
-📅 [DATE] Airdrop Daily Report
+## Radar Sweep — [Date]
 
-🔍 Scanned: [X] sources | Found: [Y] opportunities
-⏰ Last updated: [TIMESTAMP]
+[summary]
+
+| # | Project | Grade | TVL | Funding | Cost | ROI | Action |
+|---|---------|-------|-----|---------|------|-----|--------|
+| 1 | **Project Name** | **S** | $500M | $80M (Paradigm) | $20-50 | 9/10 | Cross-chain + hold 0.1 ETH |
+
+**Hunter Says:** savage_comment
+
+---
+
+**Hunter Advice:** hunter_advice
+
+**What's Next?**
+1. Deep Dive S/A Project
+2. Check Scam Risks
+3. Show Zero Cost
 ```
 
 ---
 
-### Section 2: S/A Grade Tasks
+## 2. Check Project Output
 
+### JSON Structure (from MCP tool)
+```json
+{
+  "project_identity": {
+    "name": "Monad",
+    "status": "active",
+    "grade": "S"
+  },
+  "analysis": {
+    "vc_quality": "顶级VC站台（Paradigm、Electric Capital），这饼至少有人负责烤。",
+    "tokenomics": "暂无代币，这是好信号——说明空投还没发，你现在交互还来得及。",
+    "scam_probability": "低 - 项目数据完整且有正规背书。"
+  },
+  "the_harsh_truth": "Monad是当前最值得花时间的项目。不做？那你来币圈是来旅游的吗？",
+  "verdict": "MUST DO - 顶级机会，不交互后悔",
+  "next_step_options": ["Verify Official URL", "Show Zero Cost for This Chain", "Add to Watchlist"]
+}
+```
+
+### Rendered Markdown Template
 ```markdown
-## 🔥 HIGH PRIORITY (Grade S/A)
+## Deep Dive: **[Project Name]** — Grade [X]
 
-### 1. [Project Name] - [Grade]
-**Action**: [What to do]
-**Gas**: $[amount] | **Deadline**: [date or "Ongoing"]
-**Why**: [Brief reason - VC backing, funding, etc.]
-**Link**: [Official URL]
+| Dimension | Assessment |
+|-----------|-----------|
+| VC Quality | vc_quality |
+| Tokenomics | tokenomics |
+| Scam Probability | scam_probability |
 
-**Steps**:
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
+**The Harsh Truth:** the_harsh_truth
 
-⚠️ Risk: [Any specific risk]
+**Verdict:** verdict
+
+---
+
+**What's Next?**
+1. Verify Official URL
+2. Show Zero Cost for This Chain
+3. Add to Watchlist
 ```
 
 ---
 
-### Section 3: Zero-Cost Testnets
+## 3. Zero-Cost Output
 
+### JSON Structure (from MCP tool)
+```json
+{
+  "opportunity_type": "Zero-Cost Testnet & Free Mainnet",
+  "items": [
+    {
+      "name": "Monad",
+      "time_investment": "15 mins daily",
+      "probability": "40-60%",
+      "sybil_resistance": "Medium (需要链上活跃记录)",
+      "savage_comment": "不需要你掏钱，只需要你出卖劳动力。"
+    }
+  ],
+  "survival_tips": "一定要隔离IP和钱包，别让项目方觉得你是一台莫得感情的刷分机器。",
+  "next_step_options": ["Verify First Project URL", "Set Daily Reminder", "Check Multi-Account Strategy"]
+}
+```
+
+### Rendered Markdown Template
 ```markdown
-## 🧪 ZERO-COST TESTNETS (Grade B)
+## Broke-to-Rich Path — $0 Cost Opportunities
 
-### 1. [Project Name]
-**Time**: [Estimated time]
-**Reward**: [Potential airdrop]
+| # | Project | Time | Probability | Sybil Resistance |
+|---|---------|------|-------------|-----------------|
+| 1 | **Monad** | 15 min/day | 40-60% | Medium |
 
-**Steps**:
-1. Get testnet tokens: [Faucet URL]
-2. [Action 1]
-3. [Action 2]
+**Hunter Says:** savage_comment
 
-🔗 Links: [Official URLs]
+**Survival Tips:** survival_tips
+
+---
+
+**What's Next?**
+1. Verify First Project URL
+2. Set Daily Reminder
+3. Check Multi-Account Strategy
 ```
 
 ---
 
-### Section 4: Scam Alerts
+## 4. Scam Check Output
 
-```markdown
-## ⚠️ SCAM ALERTS
-
-### [Scam Type]
-[Warning details following scam-detection.md format]
-
----
-Proceed with caution. Always verify through official channels.
+### JSON Structure (from MCP tool)
+```json
+{
+  "security_verdict": "DANGER / HIGH RISK",
+  "threat_level": "CRITICAL",
+  "detection_report": {
+    "url_analyzed": "https://scroll-airdrop-claim.xyz",
+    "project_analyzed": "Scroll",
+    "warnings_found": 2,
+    "warning_details": [
+      {
+        "type": "fake_claim_website",
+        "description": "Hyphenated knockoff: scroll-airdrop pattern detected",
+        "severity": "critical"
+      }
+    ],
+    "safe_alternatives": ["scroll.io"]
+  },
+  "savage_comment": "如果你想清空钱包，请务必点击这个链接。",
+  "safe_action": "已为你找到官方验证的安全链接：scroll.io",
+  "next_step_options": ["Find Legit Official Site", "Scan Safe Airdrops", "Report This Scam"]
+}
 ```
 
-*Only include if scams detected. Otherwise, omit this section.*
+### Rendered Markdown Template — CRITICAL/HIGH Risk
+```markdown
+## **DANGER** — Threat Level: CRITICAL
+
+**DO NOT CLICK. DO NOT CONNECT YOUR WALLET.**
+
+| Detection | Detail |
+|-----------|--------|
+| URL Analyzed | scroll-airdrop-claim.xyz |
+| Warnings | 2 found |
+| Type | fake_claim_website |
+
+**Warning Details:**
+- [CRITICAL] Hyphenated knockoff: scroll-airdrop pattern detected
+
+**Hunter Says:** savage_comment
+
+**Safe Alternative:** scroll.io
 
 ---
 
-### Section 5: Quick Tips
+**What's Next?**
+1. Find Legit Official Site
+2. Scan Safe Airdrops
+3. Report This Scam
+```
 
+### Rendered Markdown Template — Safe/Low Risk
 ```markdown
-## 💡 QUICK TIPS
+## All Clear — Threat Level: LOW
 
-- [Tip 1]
-- [Tip 2]
-- [Tip 3]
+| Detection | Detail |
+|-----------|--------|
+| URL Analyzed | monad.xyz |
+| Warnings | 0 found |
+
+**Safe Action:** safe_action
+
+---
+
+**What's Next?**
+1. Show Zero Cost for This Project
+2. Daily Report
+3. Scan All Airdrops
 ```
 
 ---
 
-## Formatting Rules
+## 5. Prohibited Projects in Output
 
-### Links
-- All links must be clickable: `[text](URL)`
-- Only official domains
-- Verify before including
-
-### Costs
-- Always disclose gas costs
-- Use range: `$1-3` not exact amounts
-- Highlight free opportunities
-
-### Deadlines
-- Be specific: `March 31, 2026`
-- Or indicate: `Ongoing`, `No deadline`
-
-### Risk Warnings
-- Use ⚠️ emoji for warnings
-- Be specific about risks
-- Never downplay dangers
-
----
-
-## Example Output
+When a scan/check returns a **prohibited project**, it MUST be displayed differently:
 
 ```markdown
-📅 March 30, 2026 Airdrop Daily Report
-
-🔍 Scanned: 12 sources | Found: 8 opportunities
-⏰ Last updated: 2026-03-30 10:00 UTC
-
----
-
-## 🔥 HIGH PRIORITY (Grade S/A)
-
-### 1. Scroll - Grade A
-**Action**: Bridge ETH to Scroll network
-**Gas**: $2-5 | **Deadline**: Ongoing (Points active)
-**Why**: Polychain backed ($80M), mainnet live, points system running
-**Link**: https://scroll.io/bridge
-
-**Steps**:
-1. Connect wallet to Scroll bridge
-2. Bridge min 0.01 ETH from Ethereum
-3. Complete transactions on Scroll
-
-⚠️ Risk: Points system may not convert to tokens
-
----
-
-## 🧪 ZERO-COST TESTNETS (Grade B)
-
-### 1. Linea Testnet
-**Time**: 10 minutes
-**Reward**: Potential future airdrop
-
-**Steps**:
-1. Get testnet ETH: https://faucet.goerli.linea.build
-2. Swap tokens on Linea testnet
-3. Mint testnet NFT
-
-🔗 Links: https://linea.build
-
----
-
-## 💡 QUICK TIPS
-
-- Always verify links on official Twitter before clicking
-- Set aside a dedicated wallet for airdrop hunting
-- Track your interactions with a spreadsheet
-- Never share your seed phrase with anyone
+| # | Project | Grade | Status | Note |
+|---|---------|-------|--------|------|
+| - | ~~Arbitrum~~ | ~~C~~ | **Airdrop Done** | $ARB distributed. Skip. |
 ```
+
+**Never show prohibited projects as active opportunities.** Always strikethrough and mark "Airdrop Done."
