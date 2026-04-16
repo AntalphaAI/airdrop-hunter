@@ -1,5 +1,7 @@
 # Airdrop Hunter
 
+🇺🇸 [English](#airdrop-hunter) · 🇨🇳 [中文](README-zh.md)
+
 **Elite Web3 Airdrop Strategist — From Clueless to Deadly**
 
 [![Skill Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/AntalphaAI/airdrop-hunter)
