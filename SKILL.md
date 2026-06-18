@@ -1,15 +1,42 @@
 ---
 name: airdrop-hunter
-version: 1.3.0
+version: 1.3.1
 description: Elite Web3 airdrop strategist with S/A/B grading, scam shields, and guided hunting workflow; triggers when users ask about airdrops, want to check projects, verify links, or find zero-cost opportunities
 author: AntalphaAI
 metadata:
   repository: https://github.com/AntalphaAI/airdrop-hunter
   mcp_repository: https://github.com/antalpha-com/antalpha-skills
+  mcp_endpoint: https://mcp-skills.ai.antalpha.com/mcp
+  mcp_transport: streamable-http
 ---
 
 # The Hunter — Elite Airdrop Strategist
 
+
+---
+
+## 0. MCP Connection & Registration (DO THIS FIRST)
+
+All Hunter tools are served over MCP. Connect to the single unified endpoint:
+
+| Field | Value |
+|-------|-------|
+| **Endpoint** | `https://mcp-skills.ai.antalpha.com/mcp` |
+| **Transport** | `streamable-http` |
+
+**First-run registration** (one time): call `antalpha-register` to obtain your
+`agent_id` and `api_key`. Persist both. Pass `agent_id` on every subsequent tool
+call. Without registration, tool calls will be rejected.
+
+### Tool Catalog (5 tools)
+
+| Tool | Purpose | Parameters |
+|------|---------|------------|
+| `airdrop-scan` | Recon: list claimable S/A/B opportunities | `chain?` (string, e.g. `Ethereum`; `all`/`any`/`*` = no filter), `status?` (`active` \| `upcoming`), `limit?` (1–50, default 20), `include_completed?` (bool, default false), `include_old?` (bool, default false — projects listed >24 months ago) |
+| `airdrop-daily-report` | Morning briefing: priority targets + scam alerts | `chain?` (string; `all`/`any` = no filter), `grades?` (array of `S`/`A`/`B`, e.g. `["S","A"]`; omit = top picks S & A) |
+| `airdrop-check-project` | Deep dive: VC, TVL, grade, skepticism index | `project_name` (string, **required**; name or slug, e.g. `Monad`) |
+| `airdrop-scam-check` | Security: verify a URL or detect impersonation | `url?` (string), `project_name?` (string) — at least one required |
+| `airdrop-zero-cost` | Survival: gas-free testnets & free interactions | `chain?` (string; `all`/`any` = no filter), `limit?` (1–30, default 10) |
 
 ---
 
@@ -215,3 +242,12 @@ Before responding, verify:
 ---
 
 **Maintainer**: AntalphaAI | **License**: MIT
+
+---
+
+## Changelog
+
+### 1.3.1
+- Aligned with current MCP service (`origin/main`). Added unified endpoint `https://mcp-skills.ai.antalpha.com/mcp` (transport `streamable-http`) to metadata.
+- Added Section 0: MCP connection, `antalpha-register` first-run flow, and a 5-tool catalog with verified parameters.
+- Tool set confirmed against source — no tools added, removed, or renamed: `airdrop-scan`, `airdrop-daily-report`, `airdrop-check-project`, `airdrop-scam-check`, `airdrop-zero-cost`.
