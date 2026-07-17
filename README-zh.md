@@ -60,7 +60,7 @@ MCP Server 版本直接从以下来源获取结构化数据：
 
 最新版 Airdrop Hunter 以 MCP 工具形式运行在 Antalpha MCP Server 上。
 
-**MCP 接入**：[Antalpha MCP Server](https://www.antalpha.com/documentation)
+**MCP 接入**：[Antalpha MCP Server](https://www.antalpha.com/documentation) —— 通过 [antalpha-ai-setup](https://github.com/AntalphaAI/antalpha-ai-setup) 接入
 
 **无需插件或 API Key。** 所有数据从公共 API（DefiLlama）获取。
 
