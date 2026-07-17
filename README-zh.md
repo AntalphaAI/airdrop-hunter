@@ -9,7 +9,7 @@
 
 ---
 
-> **MCP Server 版本**（NestJS）已迁移至 [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills)，可通过 Antalpha MCP Server 作为 MCP 工具调用。
+> **MCP Server 版本**（NestJS）已作为托管工具接入 [Antalpha MCP Server](https://www.antalpha.com/documentation)，可直接作为 MCP 工具调用。
 
 ---
 
@@ -60,7 +60,7 @@ MCP Server 版本直接从以下来源获取结构化数据：
 
 最新版 Airdrop Hunter 以 MCP 工具形式运行在 Antalpha MCP Server 上。
 
-**仓库地址**：[antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills)（`feat/airdrop-hunter` 分支）
+**MCP 接入**：[Antalpha MCP Server](https://www.antalpha.com/documentation) —— 通过 [antalpha-ai-setup](https://github.com/AntalphaAI/antalpha-ai-setup) 接入
 
 **无需插件或 API Key。** 所有数据从公共 API（DefiLlama）获取。
 

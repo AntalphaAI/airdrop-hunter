@@ -56,7 +56,7 @@ No fluff. Direct delivery of:
 
 The latest version of Airdrop Hunter runs as an MCP tool on the Antalpha MCP Server.
 
-**Repository**: [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills) (`feat/airdrop-hunter` branch)
+**MCP access**: [Antalpha MCP Server](https://www.antalpha.com/documentation) — connect via [antalpha-ai-setup](https://github.com/AntalphaAI/antalpha-ai-setup)
 
 **No plugins or API keys required.** All data is fetched from public APIs (DefiLlama).
 

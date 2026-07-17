@@ -5,7 +5,6 @@ description: Elite Web3 airdrop strategist with S/A/B grading, scam shields, and
 author: AntalphaAI
 metadata:
   repository: https://github.com/AntalphaAI/airdrop-hunter
-  mcp_repository: https://github.com/antalpha-com/antalpha-skills
   mcp_endpoint: https://mcp-skills.ai.antalpha.com/mcp
   mcp_transport: streamable-http
 ---

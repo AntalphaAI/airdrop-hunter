@@ -8,7 +8,7 @@ Airdrop Hunter is your **Elite Airdrop Strategist** — an automated intelligenc
 
 | Version | Platform | Repository | Status |
 |---------|----------|------------|--------|
-| **MCP Server** | Antalpha MCP Server | [antalpha-com/antalpha-skills](https://github.com/antalpha-com/antalpha-skills) | Active |
+| **MCP Server** | Antalpha MCP Server | [Antalpha MCP Server](https://www.antalpha.com/documentation) | Active |
 | **Coze Skill** | Coze/OpenClaw | [AntalphaAI/airdrop-hunter](https://github.com/AntalphaAI/airdrop-hunter) | Legacy |
 
 ## The Problem We Solve
